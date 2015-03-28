@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="mi_envaseDB" class="com.mi_envasedb.Mi_envaseDB" CRUDService="true" type="DataService" springFile="mi_envaseDB.spring.xml">
+    <operation operationType="hqlquery" name="getClienteById">
+        <parameter name="id" typeRef="java.lang.Integer" isList="false"/>
+        <return typeRef="com.mi_envasedb.data.Cliente" isList="false"/>
+    </operation>
+    <dataobjects>
+        <dataobject javaType="com.mi_envasedb.data.Cliente" supportsQuickData="true">
+            <element name="idCliente" typeRef="java.lang.Integer" isList="false" allowNull="false">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element name="nombre" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="password" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="clienteTipoEnvases" typeRef="com.mi_envasedb.data.ClienteTipoEnvase" isList="true" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.mi_envasedb.data.ClienteTipoEnvase" supportsQuickData="true">
+            <element name="idClienteTipoEnvase" typeRef="java.lang.Integer" isList="false" allowNull="false">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element name="cantidad" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="tipoEnvase" typeRef="com.mi_envasedb.data.TipoEnvase" isList="false" allowNull="false"/>
+            <element name="cliente" typeRef="com.mi_envasedb.data.Cliente" isList="false" allowNull="false"/>
+            <element name="movimientoTipoEnvases" typeRef="com.mi_envasedb.data.MovimientoTipoEnvase" isList="true" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.mi_envasedb.data.MovimientoTipoEnvase" supportsQuickData="true">
+            <element name="idMovimientoTipoEnvase" typeRef="java.lang.Integer" isList="false" allowNull="false">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element name="cantidad" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+            <element name="total" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="operacionMovimiento" typeRef="com.mi_envasedb.data.OperacionMovimiento" isList="false" allowNull="false"/>
+            <element name="clienteTipoEnvase" typeRef="com.mi_envasedb.data.ClienteTipoEnvase" isList="false" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.mi_envasedb.data.OperacionMovimiento" supportsQuickData="true">
+            <element name="idOperacionMovimiento" typeRef="java.lang.Integer" isList="false" allowNull="false">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element name="operador" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="descripcion" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="movimientoTipoEnvases" typeRef="com.mi_envasedb.data.MovimientoTipoEnvase" isList="true" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.mi_envasedb.data.TipoEnvase" supportsQuickData="true">
+            <element name="idTipoEnvase" typeRef="java.lang.Integer" isList="false" allowNull="false">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element name="descripcion" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="clienteTipoEnvases" typeRef="com.mi_envasedb.data.ClienteTipoEnvase" isList="true" allowNull="true"/>
+        </dataobject>
+    </dataobjects>
+</service>

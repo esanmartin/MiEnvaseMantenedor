@@ -1,0 +1,21 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.mi_envasedb.data.Cliente" table="cliente" catalog="mi_envase" dynamic-insert="false" dynamic-update="false">
+        <id name="idCliente" type="integer">
+            <column name="id_cliente"/>
+            <generator class="native"/>
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" not-null="true"/>
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="45" not-null="true"/>
+        </property>
+        <set name="clienteTipoEnvases" inverse="true" cascade="none">
+            <key>
+                <column name="id_cliente" not-null="true"/>
+            </key>
+            <one-to-many class="com.mi_envasedb.data.ClienteTipoEnvase"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.mi_envasedb.data.MovimientoTipoEnvase" table="movimiento_tipo_envase" catalog="mi_envase" dynamic-insert="false" dynamic-update="false">
+        <id name="idMovimientoTipoEnvase" type="integer">
+            <column name="id_movimiento_tipo_envase"/>
+            <generator class="identity"/>
+        </id>
+        <property name="cantidad" type="integer">
+            <column name="cantidad" not-null="true"/>
+        </property>
+        <property name="total" type="string">
+            <column name="total" length="45" not-null="true"/>
+        </property>
+        <many-to-one name="operacionMovimiento" class="com.mi_envasedb.data.OperacionMovimiento">
+            <column name="id_operacion_movimiento" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="clienteTipoEnvase" class="com.mi_envasedb.data.ClienteTipoEnvase">
+            <column name="id_cliente_tipo_envase"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
