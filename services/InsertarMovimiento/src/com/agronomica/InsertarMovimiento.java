@@ -28,7 +28,14 @@ public class InsertarMovimiento extends JavaServiceSuperClass {
        super(INFO);
     }
     
-	public Integer InsertarMovimientoDB(int cantidad, int total, 
+    public Integer InsertarMovimientoDB(int cantidad, int total, 
+    		int id_cliente_tipo_envase) {
+        log(INFO, "start InsertarMovimientoDB. dummy");
+        
+        return 0;
+    }
+    
+	public Integer InsertarMovimientoDB_deprecated(int cantidad, int total, 
 			int id_cliente_tipo_envase) {
 		
 		log(INFO, "start InsertarMovimientoDB.");

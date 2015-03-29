@@ -6,5 +6,11 @@
         <parameter name="id_cliente_tipo_envase" typeRef="int" isList="false"/>
         <return typeRef="java.lang.Integer" isList="false"/>
     </operation>
+    <operation name="InsertarMovimientoDB_deprecated">
+        <parameter name="cantidad" typeRef="int" isList="false"/>
+        <parameter name="total" typeRef="int" isList="false"/>
+        <parameter name="id_cliente_tipo_envase" typeRef="int" isList="false"/>
+        <return typeRef="java.lang.Integer" isList="false"/>
+    </operation>
     <dataobjects/>
 </service>
