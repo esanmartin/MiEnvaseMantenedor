@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+
+<!-- Generated 03/27/2015 18:17:28
+
+Configuration for 'mi_envaseDB' database service
+
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+
+    <bean 
+        id="mi_envaseDB"
+        class="com.mi_envasedb.Mi_envaseDB"
+        scope="singleton"
+        lazy-init="true">
+        <property name="dataServiceManager">
+            <ref bean="mi_envaseDBDataService"/>
+        </property>
+        <property name="taskManager">
+            <ref bean="mi_envaseDBTaskMgr"/>
+        </property>
+    </bean>
+
+
+    <bean 
+        class="com.wavemaker.runtime.data.spring.WMPropertyPlaceholderConfigurer">
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="locations">
+            <list>
+                <value>classpath:mi_envaseDB.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean 
+        id="mi_envaseDBDataSource"
+        class="org.springframework.jdbc.datasource.DriverManagerDataSource" 
+        lazy-init="true">
+        <property name="driverClassName" value="${mi_envaseDB.driverClassName}"/>
+        <property name="url" value="${mi_envaseDB.connectionUrl}"/>
+        <property name="username" value="${mi_envaseDB.username}"/>
+        <property name="password" value="${mi_envaseDB.password}"/>
+    </bean>
+
+
+    <bean 
+        id="mi_envaseDBTxMgr" 
+        class="org.springframework.orm.hibernate3.HibernateTransactionManager"
+        lazy-init="true">
+        <property name="sessionFactory">
+            <ref bean="mi_envaseDBSessionFactory"/>
+        </property>
+    </bean>
+
+
+    <bean 
+        id="mi_envaseDBHibernateTemplate"
+        class="org.springframework.orm.hibernate3.HibernateTemplate"
+        lazy-init="true">
+        <property name="sessionFactory"> 
+            <ref bean="mi_envaseDBSessionFactory"/>
+        </property>
+    </bean>  
+
+
+    <bean 
+        id="mi_envaseDBSessionFactory" 
+        class="com.wavemaker.runtime.data.spring.ConfigurationAndSessionFactoryBean"
+        lazy-init="true">
+
+        <!-- A unique name for this SessionFactory's configuration -->
+        <property name="name" value="mi_envaseDB"/>
+        <property name="dataSource" ref="mi_envaseDBDataSource"/>
+
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${mi_envaseDB.dialect}</prop>
+                <prop key="hibernate.transaction.factory_class">
+                    org.hibernate.transaction.JDBCTransactionFactory
+                </prop>
+                <prop key="hibernate.current_session_context_class">thread</prop>
+                
+            </props> 
+        </property>
+
+        <property name="mappingResources">
+            <list>
+
+<value>com/mi_envasedb/data/Cliente.hbm.xml</value>
+<value>com/mi_envasedb/data/TipoEnvase.hbm.xml</value>
+<value>com/mi_envasedb/data/ClienteTipoEnvase.hbm.xml</value>
+<value>com/mi_envasedb/data/MovimientoTipoEnvase.hbm.xml</value>
+<value>com/mi_envasedb/data/OperacionMovimiento.hbm.xml</value>
+
+<value>com/mi_envasedb/data/Cliente.ql.xml</value>
+<value>com/mi_envasedb/data/app-queries.ql.xml</value>
+
+            </list>
+        </property>
+
+    </bean>
+
+
+    <!-- the data service bean instance is injected into the service bean -->
+    <bean 
+        id="mi_envaseDBDataService" 
+        class="com.wavemaker.runtime.data.spring.SpringDataServiceManager"
+        lazy-init="true">
+        <constructor-arg>
+            <!-- the value of the "name" property of the SessionFactory -->
+            <value>mi_envaseDB</value>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="mi_envaseDBHibernateTemplate"/>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="mi_envaseDBTxMgr"/>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="mi_envaseDBTaskMgr"/>
+        </constructor-arg>
+        <constructor-arg>
+            <map>
+                <entry key="useIndividualCRUDOperations" value="false"/>
+                <entry key="refreshEntities" value=""/> 
+            </map>
+        </constructor-arg>
+    </bean>
+
+
+    <bean 
+        id="mi_envaseDBTaskMgr"
+        class="com.wavemaker.runtime.data.DefaultTaskManager"
+        lazy-init="true"/>
+
+    <bean class="com.wavemaker.runtime.service.events.EventWire"
+        lazy-init="false">
+        <property name="serviceWire" ref="mi_envaseDBServiceWire"/>
+        <property name="eventListener">
+            <bean class="com.wavemaker.runtime.data.DataServiceEventListener"/>
+        </property>
+    </bean>
+
+    <bean id="mi_envaseDBServiceWire"
+        class="com.wavemaker.runtime.service.reflect.ReflectServiceWire"
+        lazy-init="false" scope="singleton">
+        <property name="serviceId" value="mi_envaseDB"/>
+        <property name="serviceType" ref="DataService"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="InsertarMovimiento" class="com.agronomica.InsertarMovimiento" CRUDService="false" type="JavaService" springFile="InsertarMovimiento.spring.xml">
+    <operation name="InsertarMovimientoDB">
+        <parameter name="cantidad" typeRef="int" isList="false"/>
+        <parameter name="total" typeRef="int" isList="false"/>
+        <parameter name="id_cliente_tipo_envase" typeRef="int" isList="false"/>
+        <return typeRef="java.lang.Integer" isList="false"/>
+    </operation>
+    <dataobjects/>
+</service>

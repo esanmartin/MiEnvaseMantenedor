@@ -1,0 +1,19 @@
+{
+	"methods": [{
+		"name": "InsertarMovimientoDB",
+		"operationType": null,
+		"parameters": [{
+			"name": "cantidad",
+			"type": "int"
+		}, {
+			"name": "total",
+			"type": "int"
+		}, {
+			"name": "id_cliente_tipo_envase",
+			"type": "int"
+		}],
+		"returnType": "java.lang.Integer"
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "InsertarMovimiento.json"
+}
