@@ -3,6 +3,9 @@
     <bean class="com.wavemaker.runtime.service.TypeManager" parent="typeManagerBase" scope="singleton" id="typeManager">
         <property name="types">
             <map merge="true">
+                <entry key="InsertarMovimiento">
+                    <list/>
+                </entry>
                 <entry key="mi_envaseDB">
                     <list>
                         <value>com.mi_envasedb.data.Cliente</value>

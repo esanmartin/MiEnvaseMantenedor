@@ -4,5 +4,8 @@ dojo.declare("Main", wm.Page, {
 	},
 	"preferredDevice": "desktop",
 
+	clientetipoenvaseLiveForm1Result: function(inSender, inData) {
+		
+	},
 	_end: 0
 });

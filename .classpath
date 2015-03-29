@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="services/mi_envaseDB/src"/>
+	<classpathentry kind="src" path="services/InsertarMovimiento/src"/>
 	<classpathentry kind="lib" path="webapproot/WEB-INF/lib/activation-1.1.jar"/>
 	<classpathentry kind="lib" path="webapproot/WEB-INF/lib/ant-1.8.2.jar"/>
 	<classpathentry kind="lib" path="webapproot/WEB-INF/lib/ant-launcher-1.8.2.jar"/>

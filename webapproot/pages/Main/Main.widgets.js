@@ -24,41 +24,26 @@ Main.widgets = {
 	}],
 	movimientotipoenvaseLiveVariable1: ["wm.LiveVariable", {"type":"com.mi_envasedb.data.MovimientoTipoEnvase"}, {}, {
 		liveView: ["wm.LiveView", {"dataType":"com.mi_envasedb.data.MovimientoTipoEnvase","related":["operacionMovimiento","clienteTipoEnvase","clienteTipoEnvase.tipoEnvase","clienteTipoEnvase.cliente"],"view":[
-{"caption":"IdMovimientoTipoEnvase","sortable":true,"dataIndex":"idMovimientoTipoEnvase","type":"java.lang.Integer","displayType":"Number","required":true,"readonly":true,"includeLists":true,"includeForms":true,"order":1000,"subType":null,"widthUnits":"px"},
-{"caption":"Cantidad","sortable":true,"dataIndex":"cantidad","type":"java.lang.Integer","displayType":"Number","required":true,"readonly":false,"includeLists":true,"includeForms":true,"order":1001,"subType":null,"widthUnits":"px"},
-{"caption":"Total","sortable":true,"dataIndex":"total","type":"java.lang.String","displayType":"Text","required":true,"readonly":false,"includeLists":true,"includeForms":true,"order":1002,"subType":null,"widthUnits":"px"},
-{"caption":"IdOperacionMovimiento","sortable":true,"dataIndex":"operacionMovimiento.idOperacionMovimiento","type":"java.lang.Integer","displayType":"Number","required":true,"readonly":true,"includeLists":true,"includeForms":true,"order":2000,"subType":null,"widthUnits":"px"},
-{"caption":"Operador","sortable":true,"dataIndex":"operacionMovimiento.operador","type":"java.lang.String","displayType":"Text","required":true,"readonly":false,"includeLists":true,"includeForms":true,"order":2001,"subType":null,"widthUnits":"px"},
-{"caption":"Descripcion","sortable":true,"dataIndex":"operacionMovimiento.descripcion","type":"java.lang.String","displayType":"Text","required":true,"readonly":false,"includeLists":true,"includeForms":true,"order":2002,"subType":null,"widthUnits":"px"},
-{"caption":"Cantidad","sortable":true,"dataIndex":"clienteTipoEnvase.cantidad","type":"java.lang.String","displayType":"Text","required":true,"widthUnits":"px","includeLists":true,"includeForms":true,"order":3001},
-{"caption":"Nombre","sortable":true,"dataIndex":"clienteTipoEnvase.cliente.nombre","type":"java.lang.String","displayType":"Text","required":true,"widthUnits":"px","includeLists":true,"includeForms":true,"order":4001},
-{"caption":"Descripcion","sortable":true,"dataIndex":"clienteTipoEnvase.tipoEnvase.descripcion","type":"java.lang.String","displayType":"Text","required":true,"widthUnits":"px","includeLists":true,"includeForms":true,"order":5001}
+{"caption":"IdMovimientoTipoEnvase","sortable":true,"dataIndex":"idMovimientoTipoEnvase","type":"java.lang.Integer","displayType":"Number","required":true,"readonly":true,"includeLists":true,"includeForms":true,"order":0,"subType":null},
+{"caption":"Cantidad","sortable":true,"dataIndex":"cantidad","type":"java.lang.Integer","displayType":"Number","required":true,"readonly":false,"includeLists":true,"includeForms":true,"order":1,"subType":null},
+{"caption":"Total","sortable":true,"dataIndex":"total","type":"java.lang.String","displayType":"Text","required":true,"readonly":false,"includeLists":true,"includeForms":true,"order":2,"subType":null}
 ]}, {}]
 	}],
 	clientetipoenvaseLiveVariable1: ["wm.LiveVariable", {"type":"com.mi_envasedb.data.ClienteTipoEnvase"}, {}, {
-		liveView: ["wm.LiveView", {"dataType":"com.mi_envasedb.data.ClienteTipoEnvase","related":["cliente","tipoEnvase"],"view":[
+		liveView: ["wm.LiveView", {"dataType":"com.mi_envasedb.data.ClienteTipoEnvase","related":["tipoEnvase","cliente"],"view":[
 {"caption":"IdClienteTipoEnvase","sortable":true,"dataIndex":"idClienteTipoEnvase","type":"java.lang.Integer","displayType":"Number","required":true,"readonly":true,"includeLists":true,"includeForms":true,"order":0,"subType":null},
-{"caption":"Cantidad","sortable":true,"dataIndex":"cantidad","type":"java.lang.String","displayType":"Text","required":true,"readonly":false,"includeLists":true,"includeForms":true,"order":1,"subType":null},
-{"caption":"IdCliente","sortable":true,"dataIndex":"cliente.idCliente","type":"java.lang.Integer","displayType":"Number","required":true,"readonly":true,"includeLists":true,"includeForms":true,"order":0,"subType":null},
-{"caption":"Nombre","sortable":true,"dataIndex":"cliente.nombre","type":"java.lang.String","displayType":"Text","required":true,"readonly":false,"includeLists":true,"includeForms":true,"order":1,"subType":null},
-{"caption":"Password","sortable":true,"dataIndex":"cliente.password","type":"java.lang.String","displayType":"Text","required":true,"readonly":false,"includeLists":true,"includeForms":true,"order":2,"subType":null},
-{"caption":"IdTipoEnvase","sortable":true,"dataIndex":"tipoEnvase.idTipoEnvase","type":"java.lang.Integer","displayType":"Number","required":true,"readonly":true,"includeLists":true,"includeForms":true,"order":0,"subType":null},
-{"caption":"Descripcion","sortable":true,"dataIndex":"tipoEnvase.descripcion","type":"java.lang.String","displayType":"Text","required":true,"readonly":false,"includeLists":true,"includeForms":true,"order":1,"subType":null}
+{"caption":"Cantidad","sortable":true,"dataIndex":"cantidad","type":"java.lang.String","displayType":"Text","required":true,"readonly":false,"includeLists":true,"includeForms":true,"order":1,"subType":null}
 ]}, {}]
 	}],
-	clienteLiveVariable2: ["wm.LiveVariable", {"type":"com.mi_envasedb.data.Cliente"}, {}, {
-		liveView: ["wm.LiveView", {"dataType":"com.mi_envasedb.data.Cliente","view":[
-{"caption":"IdCliente","sortable":true,"dataIndex":"idCliente","type":"java.lang.Integer","displayType":"Number","required":true,"readonly":true,"includeLists":true,"includeForms":true,"order":0,"subType":null},
-{"caption":"Nombre","sortable":true,"dataIndex":"nombre","type":"java.lang.String","displayType":"Text","required":true,"readonly":false,"includeLists":true,"includeForms":true,"order":1,"subType":null},
-{"caption":"Password","sortable":true,"dataIndex":"password","type":"java.lang.String","displayType":"Text","required":true,"readonly":false,"includeLists":true,"includeForms":true,"order":2,"subType":null}
-]}, {}]
-	}],
-	clienteLiveVariable1: ["wm.LiveVariable", {"type":"com.mi_envasedb.data.Cliente"}, {}, {
-		liveView: ["wm.LiveView", {"dataType":"com.mi_envasedb.data.Cliente","view":[
-{"caption":"IdCliente","sortable":true,"dataIndex":"idCliente","type":"java.lang.Integer","displayType":"Number","required":true,"readonly":true,"includeLists":true,"includeForms":true,"order":0,"subType":null},
-{"caption":"Nombre","sortable":true,"dataIndex":"nombre","type":"java.lang.String","displayType":"Text","required":true,"readonly":false,"includeLists":true,"includeForms":true,"order":1,"subType":null},
-{"caption":"Password","sortable":true,"dataIndex":"password","type":"java.lang.String","displayType":"Text","required":true,"readonly":false,"includeLists":true,"includeForms":true,"order":2,"subType":null}
-]}, {}]
+	InsertarMovimientoServiceVariable: ["wm.ServiceVariable", {"autoUpdate":true,"inFlightBehavior":"executeLast","operation":"InsertarMovimientoDB","service":"InsertarMovimiento","startUpdate":true}, {}, {
+		input: ["wm.ServiceInput", {"type":"InsertarMovimientoDBInputs"}, {}, {
+			binding: ["wm.Binding", {}, {}, {
+				wire: ["wm.Wire", {"expression":undefined,"source":"clientetipoenvaseLiveForm1.dataOutput.cantidad","targetProperty":"cantidad"}, {}],
+				wire1: ["wm.Wire", {"expression":undefined,"source":"clientetipoenvaseLiveForm1.dataOutput.cantidad","targetProperty":"total"}, {}],
+				wire2: ["wm.Wire", {"expression":undefined,"source":"clientetipoenvaseLiveForm1.dataOutput.idClienteTipoEnvase","targetProperty":"clienteTipoEnvaseId"}, {}],
+				wire3: ["wm.Wire", {"expression":undefined,"source":"clientetipoenvaseLiveForm1.dataOutput.idClienteTipoEnvase","targetProperty":"id_cliente_tipo_envase"}, {}]
+			}]
+		}]
 	}],
 	layoutBox1: ["wm.Layout", {"horizontalAlign":"center","layoutKind":"left-to-right","preferredDevice":"desktop","verticalAlign":"top"}, {}, {
 		panel3: ["wm.Panel", {"height":"100%","horizontalAlign":"left","minDesktopHeight":600,"minHeight":600,"minWidth":900,"verticalAlign":"top","width":"75%"}, {}, {
@@ -101,7 +86,7 @@ Main.widgets = {
 									}]
 								}],
 								Edit_Cliente: ["wm.Layer", {"autoScroll":true,"borderColor":"","caption":"Edit Cliente","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {}, {
-									clienteLiveForm1: ["wm.LiveForm", {"alwaysPopulateEditors":true,"fitToContentHeight":true,"height":"86px","horizontalAlign":"left","liveEditing":false,"margin":"4","verticalAlign":"top"}, {"onSuccess":"mi_envaseDBLivePanel.popupLiveFormSuccess"}, {
+									clienteLiveForm1: ["wm.LiveForm", {"alwaysPopulateEditors":true,"fitToContentHeight":true,"height":"88px","horizontalAlign":"left","liveEditing":false,"margin":"4","verticalAlign":"top"}, {"onSuccess":"mi_envaseDBLivePanel.popupLiveFormSuccess"}, {
 										binding: ["wm.Binding", {}, {}, {
 											wire: ["wm.Wire", {"expression":undefined,"source":"clienteDojoGrid.selectedItem","targetProperty":"dataSet"}, {}]
 										}],
@@ -139,13 +124,8 @@ Main.widgets = {
 								Clientetipoenvase_List: ["wm.Layer", {"borderColor":"","caption":"Clientetipoenvase List","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {"onShow":"clientetipoenvaseDojoGrid.deselectAll"}, {
 									clientetipoenvaseDojoGrid: ["wm.DojoGrid", {"columns":[
 {"show":false,"field":"idClienteTipoEnvase","title":"IdClienteTipoEnvase","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
-{"show":false,"field":"cliente.idCliente","title":"IdCliente","width":"80px","align":"right","formatFunc":"","editorProps":null,"mobileColumn":false},
-{"show":true,"field":"cliente.nombre","title":"Cliente","width":"100%","align":"left","formatFunc":"","editorProps":null,"mobileColumn":false},
 {"show":true,"field":"cantidad","title":"Cantidad","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":false,"field":"cliente.password","title":"Password","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":false,"field":"tipoEnvase.idTipoEnvase","title":"IdTipoEnvase","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"tipoEnvase.descripcion","title":"Envase","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"Cliente: \" + ${cliente.nombre} +\n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Cantidad: \" + ${cantidad}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Envase: \" + ${tipoEnvase.descripcion}\n + \"</div>\"\n\n","mobileColumn":true}
+{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"Cantidad: \" + ${cantidad} +\n\"</div>\"\n\n","mobileColumn":true}
 ],"dsType":"com.mi_envasedb.data.ClienteTipoEnvase","height":"100%","margin":"4","minDesktopHeight":60}, {"onSelect":"mi_envaseDBLivePanel4.popupLivePanelEdit"}, {
 										binding: ["wm.Binding", {}, {}, {
 											wire: ["wm.Wire", {"expression":undefined,"source":"clientetipoenvaseLiveVariable1","targetProperty":"dataSet"}, {}]
@@ -156,13 +136,13 @@ Main.widgets = {
 									}]
 								}],
 								Edit_Clientetipoenvase: ["wm.Layer", {"autoScroll":true,"borderColor":"","caption":"Edit Clientetipoenvase","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {}, {
-									clientetipoenvaseLiveForm1: ["wm.LiveForm", {"alwaysPopulateEditors":true,"height":"100%","horizontalAlign":"left","liveEditing":false,"margin":"4","verticalAlign":"top"}, {"onSuccess":"mi_envaseDBLivePanel4.popupLiveFormSuccess"}, {
+									clientetipoenvaseLiveForm1: ["wm.LiveForm", {"alwaysPopulateEditors":true,"height":"100%","horizontalAlign":"left","liveEditing":false,"margin":"4","verticalAlign":"top"}, {"onSuccess":"mi_envaseDBLivePanel4.popupLiveFormSuccess","onResult":"clientetipoenvaseLiveForm1Result"}, {
 										binding: ["wm.Binding", {}, {}, {
 											wire: ["wm.Wire", {"expression":undefined,"source":"clientetipoenvaseDojoGrid.selectedItem","targetProperty":"dataSet"}, {}]
 										}],
 										idClienteTipoEnvaseEditor1: ["wm.Number", {"borderColor":"#FBFBFB","caption":"IdClienteTipoEnvase","captionSize":"140px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"zero","formField":"idClienteTipoEnvase","height":"26px","required":true,"width":"100%"}, {}],
 										cantidadEditor2: ["wm.Text", {"caption":"Cantidad","captionSize":"140px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"cantidad","height":"26px","maxChars":45,"required":true,"width":"100%"}, {}],
-										clienteLookup1: ["wm.Lookup", {"caption":"Cliente","captionSize":"140px","dataType":"com.mi_envasedb.data.Cliente","displayField":"password","formField":"cliente","required":true,"width":"100%"}, {}],
+										clienteLookup1: ["wm.Lookup", {"caption":"Cliente","captionSize":"140px","dataType":"com.mi_envasedb.data.Cliente","displayField":"nombre","formField":"cliente","required":true,"width":"100%"}, {}],
 										tipoEnvaseLookup1: ["wm.Lookup", {"caption":"TipoEnvase","captionSize":"140px","dataType":"com.mi_envasedb.data.TipoEnvase","displayField":"descripcion","formField":"tipoEnvase","required":true,"width":"100%"}, {}]
 									}],
 									clientetipoenvaseFormButtonPanel: ["wm.Panel", {"desktopHeight":"32px","enableTouchHeight":true,"height":"32px","horizontalAlign":"right","layoutKind":"left-to-right","mobileHeight":"40px","verticalAlign":"top","width":"100%"}, {}, {
@@ -182,7 +162,70 @@ Main.widgets = {
 							}]
 						}]
 					}],
-					layer3: ["wm.Layer", {"border":"1","borderColor":"#999999","caption":"Tipos de envase","horizontalAlign":"left","verticalAlign":"top"}, {}, {
+					layer3: ["wm.Layer", {"border":"1","borderColor":"#999999","caption":"Movimientos","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {}, {
+						mi_envaseDBLivePanel3: ["wm.LivePanel", {"autoScroll":false,"borderColor":"#FBFBFB","horizontalAlign":"left","verticalAlign":"top"}, {}, {
+							binding: ["wm.Binding", {}, {}, {
+								wire: ["wm.Wire", {"source":"Movimientotipoenvase_List","targetId":null,"targetProperty":"gridLayer"}, {}],
+								wire1: ["wm.Wire", {"source":"Edit_Movimientotipoenvase","targetId":null,"targetProperty":"detailsLayer"}, {}],
+								wire2: ["wm.Wire", {"source":"movimientotipoenvaseLiveForm1","targetId":null,"targetProperty":"liveForm"}, {}],
+								wire3: ["wm.Wire", {"source":"movimientotipoenvaseDojoGrid","targetId":null,"targetProperty":"dataGrid"}, {}],
+								wire4: ["wm.Wire", {"source":"movimientotipoenvaseSaveButton","targetId":null,"targetProperty":"saveButton"}, {}]
+							}],
+							movimientotipoenvaseLayers: ["wm.BreadcrumbLayers", {}, {}, {
+								Movimientotipoenvase_List: ["wm.Layer", {"borderColor":"","caption":"Movimientotipoenvase List","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {"onShow":"movimientotipoenvaseDojoGrid.deselectAll"}, {
+									movimientotipoenvaseDojoGrid: ["wm.DojoGrid", {"columns":[
+{"show":false,"field":"idMovimientoTipoEnvase","title":"IdMovimientoTipoEnvase","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
+{"show":true,"field":"cantidad","title":"Cantidad","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
+{"show":true,"field":"total","title":"Total","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"Cantidad: \" + ${cantidad} +\n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Total: \" + ${total}\n + \"</div>\"\n\n","mobileColumn":true}
+],"dsType":"com.mi_envasedb.data.MovimientoTipoEnvase","height":"100%","margin":"4","minDesktopHeight":60}, {"onSelect":"mi_envaseDBLivePanel3.popupLivePanelEdit"}, {
+										binding: ["wm.Binding", {}, {}, {
+											wire: ["wm.Wire", {"expression":undefined,"source":"movimientotipoenvaseLiveVariable1","targetProperty":"dataSet"}, {}]
+										}]
+									}],
+									movimientotipoenvaseGridButtonPanel: ["wm.Panel", {"desktopHeight":"32px","enableTouchHeight":true,"height":"32px","horizontalAlign":"right","layoutKind":"left-to-right","mobileHeight":"40px","verticalAlign":"top","width":"100%"}, {}, {
+										movimientotipoenvaseNewButton: ["wm.Button", {"caption":"Nuevo","margin":"4"}, {"onclick":"mi_envaseDBLivePanel3.popupLivePanelInsert"}]
+									}]
+								}],
+								Edit_Movimientotipoenvase: ["wm.Layer", {"autoScroll":true,"borderColor":"","caption":"Edit Movimientotipoenvase","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {}, {
+									movimientotipoenvaseLiveForm1: ["wm.LiveForm", {"alwaysPopulateEditors":true,"fitToContentHeight":true,"height":"166px","horizontalAlign":"left","liveEditing":false,"margin":"4","readonly":true,"verticalAlign":"top"}, {"onSuccess":"mi_envaseDBLivePanel3.popupLiveFormSuccess"}, {
+										binding: ["wm.Binding", {}, {}, {
+											wire: ["wm.Wire", {"expression":undefined,"source":"movimientotipoenvaseDojoGrid.selectedItem","targetProperty":"dataSet"}, {}]
+										}],
+										idMovimientoTipoEnvaseEditor1: ["wm.Number", {"borderColor":"#FBFBFB","caption":"IdMovimientoTipoEnvase","captionSize":"140px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"zero","formField":"idMovimientoTipoEnvase","height":"26px","readonly":true,"required":true,"width":"100%"}, {}],
+										cantidadEditor1: ["wm.Number", {"borderColor":"#FBFBFB","caption":"Cantidad","captionSize":"140px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"zero","formField":"cantidad","height":"26px","readonly":true,"required":true,"width":"100%"}, {}],
+										totalEditor1: ["wm.Text", {"caption":"Total","captionSize":"140px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"total","height":"26px","maxChars":45,"readonly":true,"required":true,"width":"100%"}, {}],
+										operacionMovimientoLookup1: ["wm.Lookup", {"caption":"OperacionMovimiento","captionSize":"140px","dataType":"com.mi_envasedb.data.OperacionMovimiento","displayField":"operador","formField":"operacionMovimiento","readonly":true,"required":true,"width":"100%"}, {}],
+										clienteTipoEnvaseLookup1: ["wm.Lookup", {"caption":"ClienteTipoEnvase","captionSize":"140px","dataType":"com.mi_envasedb.data.ClienteTipoEnvase","displayField":"cantidad","formField":"clienteTipoEnvase","readonly":true,"width":"100%"}, {}],
+										movimientotipoenvaseLiveForm1EditPanel: ["wm.EditPanel", {"desktopHeight":"32px","height":"32px","liveForm":"movimientotipoenvaseLiveForm1","operationPanel":"operationPanel1","savePanel":"savePanel1"}, {}, {
+											savePanel1: ["wm.Panel", {"height":"100%","horizontalAlign":"right","layoutKind":"left-to-right","showing":false,"verticalAlign":"top","width":"100%"}, {}, {
+												saveButton1: ["wm.Button", {"_classes":{"domNode":["SubmitButton"]},"caption":"Guardar","height":"100%","margin":"4"}, {"onclick":"movimientotipoenvaseLiveForm1EditPanel.saveData"}, {
+													binding: ["wm.Binding", {}, {}, {
+														wire: ["wm.Wire", {"expression":undefined,"source":"movimientotipoenvaseLiveForm1EditPanel.formInvalid","targetProperty":"disabled"}, {}]
+													}]
+												}],
+												cancelButton1: ["wm.Button", {"caption":"Cancelar","height":"100%","margin":"4"}, {"onclick":"movimientotipoenvaseLiveForm1EditPanel.cancelEdit"}]
+											}],
+											operationPanel1: ["wm.Panel", {"height":"100%","horizontalAlign":"right","layoutKind":"left-to-right","verticalAlign":"top","width":"100%"}, {}, {
+												newButton1: ["wm.Button", {"caption":"Nuevo","height":"100%","margin":"4"}, {"onclick":"movimientotipoenvaseLiveForm1EditPanel.beginDataInsert"}],
+												updateButton1: ["wm.Button", {"caption":"Modificar","height":"100%","margin":"4"}, {"onclick":"movimientotipoenvaseLiveForm1EditPanel.beginDataUpdate"}, {
+													binding: ["wm.Binding", {}, {}, {
+														wire: ["wm.Wire", {"expression":undefined,"source":"movimientotipoenvaseLiveForm1EditPanel.formUneditable","targetProperty":"disabled"}, {}]
+													}]
+												}],
+												deleteButton1: ["wm.Button", {"caption":"Eliminar","height":"100%","margin":"4"}, {"onclick":"movimientotipoenvaseLiveForm1EditPanel.deleteData"}, {
+													binding: ["wm.Binding", {}, {}, {
+														wire: ["wm.Wire", {"expression":undefined,"source":"movimientotipoenvaseLiveForm1EditPanel.formUneditable","targetProperty":"disabled"}, {}]
+													}]
+												}]
+											}]
+										}]
+									}]
+								}]
+							}]
+						}]
+					}],
+					layer4: ["wm.Layer", {"border":"1","borderColor":"#999999","caption":"Tipos de envase","horizontalAlign":"left","verticalAlign":"top"}, {}, {
 						mi_envaseDBLivePanel1: ["wm.LivePanel", {"autoScroll":false,"borderColor":"#FBFBFB","horizontalAlign":"left","verticalAlign":"top"}, {}, {
 							binding: ["wm.Binding", {}, {}, {
 								wire: ["wm.Wire", {"source":"Tipoenvase_List","targetId":null,"targetProperty":"gridLayer"}, {}],
@@ -224,75 +267,6 @@ Main.widgets = {
 										tipoenvaseDeleteButton: ["wm.Button", {"caption":"Eliminar","margin":"4"}, {"onclick":"tipoenvaseLiveForm1.deleteData"}, {
 											binding: ["wm.Binding", {}, {}, {
 												wire: ["wm.Wire", {"source":"tipoenvaseDojoGrid.emptySelection","targetId":null,"targetProperty":"disabled"}, {}]
-											}]
-										}]
-									}]
-								}]
-							}]
-						}]
-					}],
-					layer4: ["wm.Layer", {"border":"1","borderColor":"#999999","caption":"Movimientos","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {}, {
-						mi_envaseDBLivePanel3: ["wm.LivePanel", {"autoScroll":false,"borderColor":"#FBFBFB","horizontalAlign":"left","verticalAlign":"top"}, {}, {
-							binding: ["wm.Binding", {}, {}, {
-								wire: ["wm.Wire", {"source":"Movimientotipoenvase_List","targetId":null,"targetProperty":"gridLayer"}, {}],
-								wire1: ["wm.Wire", {"source":"Edit_Movimientotipoenvase","targetId":null,"targetProperty":"detailsLayer"}, {}],
-								wire2: ["wm.Wire", {"source":"movimientotipoenvaseLiveForm1","targetId":null,"targetProperty":"liveForm"}, {}],
-								wire3: ["wm.Wire", {"source":"movimientotipoenvaseDojoGrid","targetId":null,"targetProperty":"dataGrid"}, {}],
-								wire4: ["wm.Wire", {"source":"movimientotipoenvaseSaveButton","targetId":null,"targetProperty":"saveButton"}, {}]
-							}],
-							movimientotipoenvaseLayers: ["wm.BreadcrumbLayers", {}, {}, {
-								Movimientotipoenvase_List: ["wm.Layer", {"borderColor":"","caption":"Movimientotipoenvase List","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {"onShow":"movimientotipoenvaseDojoGrid.deselectAll"}, {
-									movimientotipoenvaseDojoGrid: ["wm.DojoGrid", {"columns":[
-{"show":false,"field":"idMovimientoTipoEnvase","title":"IdMovimientoTipoEnvase","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"cantidad","title":"Cantidad","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"total","title":"Total","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":false,"field":"operacionMovimiento.idOperacionMovimiento","title":"IdOperacionMovimiento","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"operacionMovimiento.operador","title":"Operador","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"operacionMovimiento.descripcion","title":"Descripcion","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"Cantidad: \" + ${cantidad} +\n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Total: \" + ${total}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Operador: \" + ${operacionMovimiento.operador}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Descripcion: \" + ${operacionMovimiento.descripcion}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Cliente: \" + ${clienteTipoEnvase.cliente.nombre}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Cantidad: \" + ${clienteTipoEnvase.cantidad}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Envase: \" + ${clienteTipoEnvase.tipoEnvase.descripcion}\n + \"</div>\"\n\n","mobileColumn":true},
-{"show":true,"field":"clienteTipoEnvase.cliente.nombre","title":"Cliente","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"clienteTipoEnvase.cantidad","title":"Cantidad","width":"100%","align":"left","formatFunc":"","editorProps":null,"mobileColumn":false},
-{"show":true,"field":"clienteTipoEnvase.tipoEnvase.descripcion","title":"Envase","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
-],"dsType":"com.mi_envasedb.data.MovimientoTipoEnvase","height":"100%","margin":"4","minDesktopHeight":60}, {"onSelect":"mi_envaseDBLivePanel3.popupLivePanelEdit"}, {
-										binding: ["wm.Binding", {}, {}, {
-											wire: ["wm.Wire", {"expression":undefined,"source":"movimientotipoenvaseLiveVariable1","targetProperty":"dataSet"}, {}]
-										}]
-									}],
-									movimientotipoenvaseGridButtonPanel: ["wm.Panel", {"desktopHeight":"32px","enableTouchHeight":true,"height":"32px","horizontalAlign":"right","layoutKind":"left-to-right","mobileHeight":"40px","verticalAlign":"top","width":"100%"}, {}, {
-										movimientotipoenvaseNewButton: ["wm.Button", {"caption":"Nuevo","margin":"4"}, {"onclick":"mi_envaseDBLivePanel3.popupLivePanelInsert"}]
-									}]
-								}],
-								Edit_Movimientotipoenvase: ["wm.Layer", {"autoScroll":true,"borderColor":"","caption":"Edit Movimientotipoenvase","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {}, {
-									movimientotipoenvaseLiveForm1: ["wm.LiveForm", {"alwaysPopulateEditors":true,"fitToContentHeight":true,"height":"166px","horizontalAlign":"left","liveEditing":false,"margin":"4","readonly":true,"verticalAlign":"top"}, {"onSuccess":"mi_envaseDBLivePanel3.popupLiveFormSuccess"}, {
-										binding: ["wm.Binding", {}, {}, {
-											wire: ["wm.Wire", {"expression":undefined,"source":"movimientotipoenvaseDojoGrid.selectedItem","targetProperty":"dataSet"}, {}]
-										}],
-										idMovimientoTipoEnvaseEditor1: ["wm.Number", {"caption":"IdMovimientoTipoEnvase","captionSize":"140px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"zero","formField":"idMovimientoTipoEnvase","height":"26px","readonly":true,"required":true,"width":"100%"}, {}],
-										cantidadEditor1: ["wm.Number", {"caption":"Cantidad","captionSize":"140px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"zero","formField":"cantidad","height":"26px","readonly":true,"required":true,"width":"100%"}, {}],
-										totalEditor1: ["wm.Text", {"caption":"Total","captionSize":"140px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"total","height":"26px","maxChars":45,"readonly":true,"required":true,"width":"100%"}, {}],
-										operacionMovimientoLookup1: ["wm.Lookup", {"caption":"OperacionMovimiento","captionSize":"140px","dataType":"com.mi_envasedb.data.OperacionMovimiento","displayField":"operador","formField":"operacionMovimiento","readonly":true,"required":true,"width":"100%"}, {}],
-										clienteTipoEnvaseLookup1: ["wm.Lookup", {"caption":"ClienteTipoEnvase","captionSize":"140px","dataType":"com.mi_envasedb.data.ClienteTipoEnvase","displayField":"cantidad","formField":"clienteTipoEnvase","readonly":true,"width":"100%"}, {}],
-										movimientotipoenvaseLiveForm1EditPanel: ["wm.EditPanel", {"desktopHeight":"32px","height":"32px","liveForm":"movimientotipoenvaseLiveForm1","operationPanel":"operationPanel1","savePanel":"savePanel1"}, {}, {
-											savePanel1: ["wm.Panel", {"height":"100%","horizontalAlign":"right","layoutKind":"left-to-right","showing":false,"verticalAlign":"top","width":"100%"}, {}, {
-												saveButton1: ["wm.Button", {"_classes":{"domNode":["SubmitButton"]},"caption":"Guardar","height":"100%","margin":"4"}, {"onclick":"movimientotipoenvaseLiveForm1EditPanel.saveData"}, {
-													binding: ["wm.Binding", {}, {}, {
-														wire: ["wm.Wire", {"expression":undefined,"source":"movimientotipoenvaseLiveForm1EditPanel.formInvalid","targetProperty":"disabled"}, {}]
-													}]
-												}],
-												cancelButton1: ["wm.Button", {"caption":"Cancelar","height":"100%","margin":"4"}, {"onclick":"movimientotipoenvaseLiveForm1EditPanel.cancelEdit"}]
-											}],
-											operationPanel1: ["wm.Panel", {"height":"100%","horizontalAlign":"right","layoutKind":"left-to-right","verticalAlign":"top","width":"100%"}, {}, {
-												newButton1: ["wm.Button", {"caption":"Nuevo","height":"100%","margin":"4"}, {"onclick":"movimientotipoenvaseLiveForm1EditPanel.beginDataInsert"}],
-												updateButton1: ["wm.Button", {"caption":"Modificar","height":"100%","margin":"4"}, {"onclick":"movimientotipoenvaseLiveForm1EditPanel.beginDataUpdate"}, {
-													binding: ["wm.Binding", {}, {}, {
-														wire: ["wm.Wire", {"expression":undefined,"source":"movimientotipoenvaseLiveForm1EditPanel.formUneditable","targetProperty":"disabled"}, {}]
-													}]
-												}],
-												deleteButton1: ["wm.Button", {"caption":"Eliminar","height":"100%","margin":"4"}, {"onclick":"movimientotipoenvaseLiveForm1EditPanel.deleteData"}, {
-													binding: ["wm.Binding", {}, {}, {
-														wire: ["wm.Wire", {"expression":undefined,"source":"movimientotipoenvaseLiveForm1EditPanel.formUneditable","targetProperty":"disabled"}, {}]
-													}]
-												}]
 											}]
 										}]
 									}]
