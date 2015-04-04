@@ -59,5 +59,15 @@ dojo.declare("Main", wm.Page, {
         
     },
     
-    _end: 0
+    clientetipoenvaseLiveForm1Error: function(inSender, inError) {
+		var errorMsg = inError.toString();
+        
+        console.log("errorMsg:" + errorMsg);
+        
+        if (~errorMsg.indexOf("Error: Duplicate entry '1-1' for key 'unique_index'")) {
+            app.alert("El cliente ya tiene envases de ese tipo. \n Por favor seleccione de otro tipo.");
+        }
+	},
+    
+	_end: 0
 });

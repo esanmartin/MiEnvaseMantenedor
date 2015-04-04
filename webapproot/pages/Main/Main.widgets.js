@@ -102,7 +102,7 @@ Main.widgets = {
 									}]
 								}],
 								Edit_Cliente: ["wm.Layer", {"autoScroll":true,"borderColor":"","caption":"Edit Cliente","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {}, {
-									clienteLiveForm1: ["wm.LiveForm", {"alwaysPopulateEditors":true,"fitToContentHeight":true,"height":"86px","horizontalAlign":"left","liveEditing":false,"margin":"4","verticalAlign":"top"}, {"onSuccess":"mi_envaseDBLivePanel.popupLiveFormSuccess"}, {
+									clienteLiveForm1: ["wm.LiveForm", {"alwaysPopulateEditors":true,"fitToContentHeight":true,"height":"88px","horizontalAlign":"left","liveEditing":false,"margin":"4","verticalAlign":"top"}, {"onSuccess":"mi_envaseDBLivePanel.popupLiveFormSuccess"}, {
 										binding: ["wm.Binding", {}, {}, {
 											wire: ["wm.Wire", {"expression":undefined,"source":"clienteDojoGrid.selectedItem","targetProperty":"dataSet"}, {}]
 										}],
@@ -140,10 +140,10 @@ Main.widgets = {
 								Clientetipoenvase_List: ["wm.Layer", {"borderColor":"","caption":"Clientetipoenvase List","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {"onShow":"clientetipoenvaseDojoGrid.deselectAll"}, {
 									clientetipoenvaseDojoGrid: ["wm.DojoGrid", {"columns":[
 {"show":false,"field":"idClienteTipoEnvase","title":"IdClienteTipoEnvase","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
+{"show":true,"field":"cliente.nombre","title":"Cliente.nombre","width":"100%","align":"left","formatFunc":"","editorProps":null,"mobileColumn":false},
 {"show":true,"field":"cantidad","title":"Cantidad","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"Cantidad: \" + ${cantidad} +\n\"</div>\"\n\n","mobileColumn":true},
-{"show":false,"field":"tipoEnvase.descripcion","title":"TipoEnvase.descripcion","width":"100%","displayType":"Text","align":"left","formatFunc":""},
-{"show":false,"field":"cliente.nombre","title":"Cliente.nombre","width":"100%","displayType":"Text","align":"left","formatFunc":""}
+{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"Cliente.nombre: \" + ${cliente.nombre} +\n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Cantidad: \" + ${cantidad}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"TipoEnvase.descripcion: \" + ${tipoEnvase.descripcion}\n + \"</div>\"\n\n","mobileColumn":true},
+{"show":true,"field":"tipoEnvase.descripcion","title":"TipoEnvase.descripcion","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
 ],"dsType":"com.mi_envasedb.data.ClienteTipoEnvase","height":"100%","margin":"4","minDesktopHeight":60}, {"onSelect":"mi_envaseDBLivePanel4.popupLivePanelEdit"}, {
 										binding: ["wm.Binding", {}, {}, {
 											wire: ["wm.Wire", {"expression":undefined,"source":"clientetipoenvaseLiveVariable1","targetProperty":"dataSet"}, {}]
@@ -154,7 +154,7 @@ Main.widgets = {
 									}]
 								}],
 								Edit_Clientetipoenvase: ["wm.Layer", {"autoScroll":true,"borderColor":"","caption":"Edit Clientetipoenvase","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {}, {
-									clientetipoenvaseLiveForm1: ["wm.LiveForm", {"alwaysPopulateEditors":true,"height":"100%","horizontalAlign":"left","liveEditing":false,"margin":"4","verticalAlign":"top"}, {"onInsertData":"insertMovimientotipoenvaseLiveForm1","onSuccess":"mi_envaseDBLivePanel4.popupLiveFormSuccess"}, {
+									clientetipoenvaseLiveForm1: ["wm.LiveForm", {"alwaysPopulateEditors":true,"displayErrors":false,"height":"100%","horizontalAlign":"left","liveEditing":false,"margin":"4","verticalAlign":"top"}, {"onInsertData":"insertMovimientotipoenvaseLiveForm1","onSuccess":"mi_envaseDBLivePanel4.popupLiveFormSuccess","onError":"clientetipoenvaseLiveForm1Error"}, {
 										binding: ["wm.Binding", {}, {}, {
 											wire: ["wm.Wire", {"expression":undefined,"source":"clientetipoenvaseDojoGrid.selectedItem","targetProperty":"dataSet"}, {}],
 											wire1: ["wm.Wire", {"expression":undefined,"source":"movimientotipoenvaseLiveForm1.dataOutput.idMovimientoTipoEnvase","targetProperty":"dataOutput.idClienteTipoEnvase"}, {}]
