@@ -27,6 +27,7 @@ Main.widgets = {
 {"caption":"IdMovimientoTipoEnvase","sortable":true,"dataIndex":"idMovimientoTipoEnvase","type":"java.lang.Integer","displayType":"Number","required":true,"readonly":true,"includeLists":true,"includeForms":true,"order":4000,"subType":null,"widthUnits":"px"},
 {"caption":"Cantidad","sortable":true,"dataIndex":"cantidad","type":"java.lang.Integer","displayType":"Number","required":true,"readonly":false,"includeLists":true,"includeForms":true,"order":4001,"subType":null,"widthUnits":"px"},
 {"caption":"Total","sortable":true,"dataIndex":"total","type":"java.lang.String","displayType":"Text","required":true,"readonly":false,"includeLists":true,"includeForms":true,"order":4002,"subType":null,"widthUnits":"px"},
+{"caption":"Operador","sortable":true,"dataIndex":"operacionMovimiento.operador","type":"java.lang.String","displayType":"Text","required":true,"widthUnits":"px","includeLists":true,"includeForms":true,"order":5001},
 {"caption":"IdClienteTipoEnvase","sortable":true,"dataIndex":"clienteTipoEnvase.idClienteTipoEnvase","type":"java.lang.Integer","displayType":"Number","required":true,"widthUnits":"px","includeLists":true,"includeForms":true,"order":6000},
 {"caption":"Cantidad","sortable":true,"dataIndex":"clienteTipoEnvase.cantidad","type":"java.lang.String","displayType":"Text","required":true,"widthUnits":"px","includeLists":true,"includeForms":true,"order":6001},
 {"caption":"Descripcion","sortable":true,"dataIndex":"clienteTipoEnvase.tipoEnvase.descripcion","type":"java.lang.String","displayType":"Text","required":true,"widthUnits":"px","includeLists":true,"includeForms":true,"order":7001},
@@ -154,7 +155,7 @@ Main.widgets = {
 									}]
 								}],
 								Edit_Clientetipoenvase: ["wm.Layer", {"autoScroll":true,"borderColor":"","caption":"Edit Clientetipoenvase","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {}, {
-									clientetipoenvaseLiveForm1: ["wm.LiveForm", {"alwaysPopulateEditors":true,"displayErrors":false,"height":"100%","horizontalAlign":"left","liveEditing":false,"margin":"4","verticalAlign":"top"}, {"onInsertData":"insertMovimientotipoenvaseLiveForm1","onSuccess":"mi_envaseDBLivePanel4.popupLiveFormSuccess","onError":"clientetipoenvaseLiveForm1Error"}, {
+									clientetipoenvaseLiveForm1: ["wm.LiveForm", {"alwaysPopulateEditors":true,"displayErrors":false,"height":"100%","horizontalAlign":"left","liveEditing":false,"margin":"4","verticalAlign":"top"}, {"onError":"clientetipoenvaseLiveForm1Error","onInsertData":"insertMovimientotipoenvaseLiveForm1","onSuccess":"mi_envaseDBLivePanel4.popupLiveFormSuccess"}, {
 										binding: ["wm.Binding", {}, {}, {
 											wire: ["wm.Wire", {"expression":undefined,"source":"clientetipoenvaseDojoGrid.selectedItem","targetProperty":"dataSet"}, {}],
 											wire1: ["wm.Wire", {"expression":undefined,"source":"movimientotipoenvaseLiveForm1.dataOutput.idMovimientoTipoEnvase","targetProperty":"dataOutput.idClienteTipoEnvase"}, {}]
@@ -194,13 +195,14 @@ Main.widgets = {
 								Movimientotipoenvase_List: ["wm.Layer", {"borderColor":"","caption":"Movimientotipoenvase List","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {"onShow":"movimientotipoenvaseDojoGrid.deselectAll"}, {
 									movimientotipoenvaseDojoGrid: ["wm.DojoGrid", {"columns":[
 {"show":false,"field":"idMovimientoTipoEnvase","title":"IdMovimientoTipoEnvase","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
+{"show":true,"field":"clienteTipoEnvase.cliente.nombre","title":"Cliente","width":"100%","align":"left","formatFunc":"","editorProps":null,"mobileColumn":false},
 {"show":true,"field":"cantidad","title":"Cantidad","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
+{"show":true,"field":"operacionMovimiento.operador","title":"Operacion","width":"100%","align":"left","formatFunc":"","editorProps":null,"mobileColumn":false},
 {"show":true,"field":"total","title":"Total","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"Cantidad: \" + ${cantidad} +\n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Total: \" + ${total}\n + \"</div>\"\n\n","mobileColumn":true},
-{"show":false,"field":"clienteTipoEnvase.idClienteTipoEnvase","title":"ClienteTipoEnvase.idClienteTipoEnvase","width":"80px","displayType":"Number","align":"right","formatFunc":""},
-{"show":false,"field":"clienteTipoEnvase.cantidad","title":"ClienteTipoEnvase.cantidad","width":"100%","displayType":"Text","align":"left","formatFunc":""},
-{"show":false,"field":"clienteTipoEnvase.tipoEnvase.descripcion","title":"ClienteTipoEnvase.tipoEnvase.descripcion","width":"100%","displayType":"Text","align":"left","formatFunc":""},
-{"show":false,"field":"clienteTipoEnvase.cliente.nombre","title":"ClienteTipoEnvase.cliente.nombre","width":"100%","displayType":"Text","align":"left","formatFunc":""}
+{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"Cliente: \" + ${clienteTipoEnvase.cliente.nombre} +\n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Cantidad: \" + ${cantidad}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Operacion: \" + ${operacionMovimiento.operador}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Total: \" + ${total}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"ClienteTipoEnvase.tipoEnvase.descripcion: \" + ${clienteTipoEnvase.tipoEnvase.descripcion}\n + \"</div>\"\n\n","mobileColumn":true},
+{"show":false,"field":"clienteTipoEnvase.idClienteTipoEnvase","title":"ClienteTipoEnvase.idClienteTipoEnvase","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
+{"show":false,"field":"clienteTipoEnvase.cantidad","title":"ClienteTipoEnvase.cantidad","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":true,"field":"clienteTipoEnvase.tipoEnvase.descripcion","title":"ClienteTipoEnvase.tipoEnvase.descripcion","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
 ],"dsType":"com.mi_envasedb.data.MovimientoTipoEnvase","height":"100%","margin":"4","minDesktopHeight":60}, {"onSelect":"mi_envaseDBLivePanel3.popupLivePanelEdit"}, {
 										binding: ["wm.Binding", {}, {}, {
 											wire: ["wm.Wire", {"expression":undefined,"source":"movimientotipoenvaseLiveVariable1","targetProperty":"dataSet"}, {}]
@@ -217,7 +219,11 @@ Main.widgets = {
 										}],
 										idMovimientoTipoEnvaseEditor1: ["wm.Number", {"borderColor":"#FBFBFB","caption":"IdMovimientoTipoEnvase","captionSize":"140px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"zero","formField":"idMovimientoTipoEnvase","height":"26px","readonly":true,"required":true,"width":"100%"}, {}],
 										cantidadEditor1: ["wm.Number", {"borderColor":"#FBFBFB","caption":"Cantidad","captionSize":"140px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"zero","formField":"cantidad","height":"26px","readonly":true,"required":true,"width":"100%"}, {}],
-										totalEditor1: ["wm.Text", {"caption":"Total","captionSize":"140px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"total","height":"26px","maxChars":45,"readonly":true,"required":true,"width":"100%"}, {}],
+										totalEditor1: ["wm.Text", {"caption":"Total","captionSize":"140px","changeOnKey":true,"desktopHeight":"26px","disabled":true,"emptyValue":"emptyString","formField":"total","height":"26px","maxChars":45,"readonly":true,"required":true,"width":"100%"}, {}, {
+											binding: ["wm.Binding", {}, {}, {
+												wire: ["wm.Wire", {"expression":"function operacion(valor1, valor2, operador) {\n    var resultado = 0;\n\n\tconsole.log(\"valor1: \" + valor1); //Total\n\tconsole.log(\"valor2: \" + valor2); //Valor operacion\n\tconsole.log(\"operador: \" + operador); //Suma o Resta\n    \n    var v1 = parseInt(valor1, 10);\n    var v2 = parseInt(valor2, 10);\n\n\tif (operador === '+') {\n\t\tresultado = v1 + v2; \n\t}\n\n\tif (operador === '-') {\n\t\tresultado = v1 - v2; \n\t}\n\n\treturn resultado;\n}\n\na = operacion(${clienteTipoEnvaseLookup1.selectedItem.cantidad}, \n            ${cantidadEditor1.dataValue}, \n            ${operacionMovimientoLookup1.displayValue});\na;","targetProperty":"dataValue"}, {}]
+											}]
+										}],
 										operacionMovimientoLookup1: ["wm.Lookup", {"caption":"OperacionMovimiento","captionSize":"140px","dataType":"com.mi_envasedb.data.OperacionMovimiento","displayField":"operador","formField":"operacionMovimiento","readonly":true,"required":true,"width":"100%"}, {}],
 										clienteTipoEnvaseLookup1: ["wm.Lookup", {"autoDataSet":false,"caption":"ClienteTipoEnvase","captionSize":"140px","dataType":"com.mi_envasedb.data.ClienteTipoEnvase","defaultInsert":"","displayExpression":undefined,"displayField":"idClienteTipoEnvase","formField":"clienteTipoEnvase","required":true,"restrictValues":false,"width":"100%"}, {}, {
 											binding: ["wm.Binding", {}, {}, {
