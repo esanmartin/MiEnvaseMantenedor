@@ -4,6 +4,9 @@ dojo.declare("Main", wm.Page, {
 	},
 	"preferredDevice": "desktop",
     
+    /**
+     *  Inserta idClienteTipoEnvase y cantidad en variable 1 y 2
+     */
     insertMovimientotipoenvaseLiveForm1: function(inSender, inData) {
         console.log("insertMovimientotipoenvaseLiveForm1 operation:" + inSender.operation);
         
@@ -16,16 +19,22 @@ dojo.declare("Main", wm.Page, {
             console.log('insertMovimientotipoenvaseLiveForm1 idClienteTipoEnvase: ' + idClienteTipoEnvase);
             console.log('insertMovimientotipoenvaseLiveForm1 cantidad: ' + cantidad);
             
-            this.variable1.setValue("dataValue",idClienteTipoEnvase);
-            this.variable2.setValue("dataValue",cantidad);
+            this.variable1.setValue("dataValue", idClienteTipoEnvase);
+            this.variable2.setValue("dataValue", cantidad);
             
-            console.log("Hemos seteado las v1 y v2.");
+            console.log("insertMovimientotipoenvaseLiveForm1 Hemos seteado las v1 y v2.");
             
+            //Actualizamos liveVariable para que se ejecute llamado a js:insertMovimientotipoenvaseLiveForm2
             this.clientetipoenvaseLiveVariable2.update();
+            
+            console.log("insertMovimientotipoenvaseLiveForm1 Hemos llamado a clientetipoenvaseLiveVariable2 update");
         }
         
     },
     
+    /**
+     *  Lee v1 y v2 y genera nuevo movimientoTipoEnvase.
+     */
     insertMovimientotipoenvaseLiveForm2: function(inSender, inData) {
         
         var idClienteTipoEnvase = this.variable1.getValue("dataValue");
@@ -38,23 +47,31 @@ dojo.declare("Main", wm.Page, {
         
         if (typeof idClienteTipoEnvase != "undefined") {
             
+            var fecha = new Date();
+            
             this.cantidadEditor1.setDataValue(cantidad);
-            this.totalEditor1.setDataValue(cantidad);
+            
+            this.fechaEditor1.setDataValue(fecha);
+            this.glosaEditor1.setDataValue("Insert inicial: " + cantidad + " en el: " + fecha);
             this.operacionMovimientoLookup1.setDataValue("+");
             
             this.clienteTipoEnvaseLookup1.setDataValue(idClienteTipoEnvase);
             
-            console.log('json:' + JSON.stringify(this.clienteTipoEnvaseLookup1.selectedItem.getData()));
+            console.log('insertMovimientotipoenvaseLiveForm2 json:' + JSON.stringify(this.clienteTipoEnvaseLookup1.selectedItem.getData()));
+            
+            this.totalEditor1.setDataValue(cantidad);
+            
+            console.log('insertMovimientotipoenvaseLiveForm2 total setted.');
             
             //Insertamos la data en el form :D
             this.movimientotipoenvaseLiveForm1.insertData();
             
-            console.log('Data inserted.');
+            console.log('insertMovimientotipoenvaseLiveForm2 Data inserted.');
             
             this.variable1.clearData();
             this.variable2.clearData();
             
-            console.log('Variables cleared.');
+            console.log('insertMovimientotipoenvaseLiveForm2 Variables cleared.');
         }
         
     },

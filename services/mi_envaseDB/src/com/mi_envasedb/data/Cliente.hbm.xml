@@ -11,7 +11,7 @@
         <property name="password" type="string">
             <column name="password" length="45" not-null="true"/>
         </property>
-        <set name="clienteTipoEnvases" inverse="true" cascade="none">
+        <set name="clienteTipoEnvases" inverse="true" cascade="">
             <key>
                 <column name="id_cliente" not-null="true"/>
             </key>

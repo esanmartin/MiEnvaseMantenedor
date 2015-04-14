@@ -46,6 +46,8 @@
             </element>
             <element name="cantidad" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
             <element name="total" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="fecha" typeRef="java.util.Date" isList="false" allowNull="true"/>
+            <element name="glosa" typeRef="java.lang.String" isList="false" allowNull="true"/>
             <element name="operacionMovimiento" typeRef="com.mi_envasedb.data.OperacionMovimiento" isList="false" allowNull="false"/>
             <element name="clienteTipoEnvase" typeRef="com.mi_envasedb.data.ClienteTipoEnvase" isList="false" allowNull="true"/>
         </dataobject>

@@ -359,13 +359,33 @@ wm.types = {
 				},
 				"clienteTipoEnvase": {
 					"exclude": [],
-					"fieldOrder": 4,
+					"fieldOrder": 6,
 					"fieldSubType": null,
 					"include": [],
 					"isList": false,
 					"noChange": [],
 					"required": false,
 					"type": "com.mi_envasedb.data.ClienteTipoEnvase"
+				},
+				"fecha": {
+					"exclude": [],
+					"fieldOrder": 3,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.util.Date"
+				},
+				"glosa": {
+					"exclude": [],
+					"fieldOrder": 4,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.String"
 				},
 				"idMovimientoTipoEnvase": {
 					"exclude": ["insert"],
@@ -379,7 +399,7 @@ wm.types = {
 				},
 				"operacionMovimiento": {
 					"exclude": [],
-					"fieldOrder": 3,
+					"fieldOrder": 5,
 					"fieldSubType": null,
 					"include": [],
 					"isList": false,

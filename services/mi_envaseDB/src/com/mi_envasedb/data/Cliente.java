@@ -7,7 +7,7 @@ import java.util.Set;
 
 /**
  *  mi_envaseDB.Cliente
- *  03/27/2015 18:35:57
+ *  04/05/2015 12:41:36
  * 
  */
 public class Cliente {

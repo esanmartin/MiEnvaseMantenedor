@@ -1,11 +1,12 @@
 
 package com.mi_envasedb.data;
 
+import java.util.Date;
 
 
 /**
  *  mi_envaseDB.MovimientoTipoEnvase
- *  03/27/2015 18:35:57
+ *  04/05/2015 12:41:36
  * 
  */
 public class MovimientoTipoEnvase {
@@ -13,6 +14,8 @@ public class MovimientoTipoEnvase {
     private Integer idMovimientoTipoEnvase;
     private Integer cantidad;
     private String total;
+    private Date fecha;
+    private String glosa;
     private OperacionMovimiento operacionMovimiento;
     private ClienteTipoEnvase clienteTipoEnvase;
 
@@ -38,6 +41,22 @@ public class MovimientoTipoEnvase {
 
     public void setTotal(String total) {
         this.total = total;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getGlosa() {
+        return glosa;
+    }
+
+    public void setGlosa(String glosa) {
+        this.glosa = glosa;
     }
 
     public OperacionMovimiento getOperacionMovimiento() {

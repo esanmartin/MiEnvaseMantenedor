@@ -5,7 +5,7 @@ package com.mi_envasedb;
 
 /**
  *  Query names for service "mi_envaseDB"
- *  03/28/2015 18:09:29
+ *  04/05/2015 12:52:59
  * 
  */
 public class Mi_envaseDBConstants {

@@ -11,10 +11,16 @@
         <property name="total" type="string">
             <column name="total" length="45" not-null="true"/>
         </property>
-        <many-to-one name="operacionMovimiento" class="com.mi_envasedb.data.OperacionMovimiento">
+        <property name="fecha" type="timestamp">
+            <column name="fecha"/>
+        </property>
+        <property name="glosa" type="string">
+            <column name="glosa"/>
+        </property>
+        <many-to-one name="operacionMovimiento" class="com.mi_envasedb.data.OperacionMovimiento" cascade="none">
             <column name="id_operacion_movimiento" not-null="true"/>
         </many-to-one>
-        <many-to-one name="clienteTipoEnvase" class="com.mi_envasedb.data.ClienteTipoEnvase">
+        <many-to-one name="clienteTipoEnvase" class="com.mi_envasedb.data.ClienteTipoEnvase" cascade="none">
             <column name="id_cliente_tipo_envase"/>
         </many-to-one>
     </class>
