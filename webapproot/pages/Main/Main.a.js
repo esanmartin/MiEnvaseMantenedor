@@ -16,7 +16,7 @@ console.log('insertMovimientotipoenvaseLiveForm1 cantidad: ' + cantidad);
 this.variable1.setValue("dataValue", idClienteTipoEnvase);
 this.variable2.setValue("dataValue", cantidad);
 console.log("insertMovimientotipoenvaseLiveForm1 Hemos seteado las v1 y v2.");
-//Actualizamos liveVariable para que se ejecute llamado a js:insertMovimientotipoenvaseLiveForm2
+//Actualizamos liveVariable para que se ejecute llamado a clientetipoenvaseLiveVariable2Success
 this.clientetipoenvaseLiveVariable2.update();
 console.log("insertMovimientotipoenvaseLiveForm1 Hemos llamado a clientetipoenvaseLiveVariable2 update");
 }
@@ -24,13 +24,13 @@ console.log("insertMovimientotipoenvaseLiveForm1 Hemos llamado a clientetipoenva
 /**
 *  Lee v1 y v2 y genera nuevo movimientoTipoEnvase.
 */
-insertMovimientotipoenvaseLiveForm2: function(inSender, inData) {
+clientetipoenvaseLiveVariable2Success: function(inSender, inDeprecated) {
 var idClienteTipoEnvase = this.variable1.getValue("dataValue");
 var cantidad = this.variable2.getValue("dataValue");
+if (typeof idClienteTipoEnvase != "undefined") {
 console.log('insertMovimientotipoenvaseLiveForm2 idClienteTipoEnvase: ' + idClienteTipoEnvase);
 console.log('insertMovimientotipoenvaseLiveForm2 cantidad: ' + cantidad);
 console.log("insertMovimientotipoenvaseLiveForm2 count: " + this.clienteTipoEnvaseLookup1.dataSet.getCount());
-if (typeof idClienteTipoEnvase != "undefined") {
 var fecha = new Date();
 this.cantidadEditor1.setDataValue(cantidad);
 this.fechaEditor1.setDataValue(fecha);
@@ -48,11 +48,58 @@ this.variable2.clearData();
 console.log('insertMovimientotipoenvaseLiveForm2 Variables cleared.');
 }
 },
+/**
+*  En caso de existir la tupa idCliente - idTipoEnvase despliega mensaje
+*  de error correspondiente.
+*/
 clientetipoenvaseLiveForm1Error: function(inSender, inError) {
 var errorMsg = inError.toString();
 console.log("errorMsg:" + errorMsg);
 if (~errorMsg.indexOf("Error: Duplicate entry '1-1' for key 'unique_index'")) {
 app.alert("El cliente ya tiene envases de ese tipo. \n Por favor seleccione de otro tipo.");
+}
+},
+/**
+*  Guarda total en variable para ser usado para actualizar clienteTipoEnvase.
+* */
+movimientotipoenvaseLiveForm1InsertData: function(inSender) {
+console.log("movimientotipoenvaseLiveForm1InsertData operation:" + inSender.operation);
+var idClienteTipoEnvase = "" + this.clienteTipoEnvaseLookup1.getDisplayValue();
+var total = "" + this.totalEditor1.getDataValue();
+var operacion = "" + this.operacionMovimientoLookup1.getDisplayValue();
+console.log('movimientotipoenvaseLiveForm1InsertData idClienteTipoEnvase: ' + idClienteTipoEnvase);
+console.log('movimientotipoenvaseLiveForm1InsertData total: ' + total);
+console.log('movimientotipoenvaseLiveForm1InsertData operacion: ' + operacion);
+this.variable1.setValue("dataValue", idClienteTipoEnvase);
+this.variable2.setValue("dataValue", total);
+this.variable3.setValue("dataValue", operacion);
+console.log("movimientotipoenvaseLiveForm1InsertData Hemos seteado las v3.");
+//Actualizamos liveVariable para que se ejecute llamado a js:insertMovimientotipoenvaseLiveForm2
+this.clientetipoenvaseLiveVariable3.update();
+console.log("movimientotipoenvaseLiveForm1InsertData actualizamos clientetipoenvaseLiveVariable3.");
+},
+/**
+*  Actualiza el total en ClienteTipoEnvase.
+* */
+clientetipoenvaseLiveVariable3Success: function(inSender, inDeprecated) {
+var idClienteTipoEnvase = this.variable1.getValue("dataValue");
+var total = this.variable2.getValue("dataValue");
+var operacion = this.variable3.getValue("dataValue");
+if (typeof operacion != "undefined") {
+console.log('clientetipoenvaseLiveVariable3Success idClienteTipoEnvase: ' + idClienteTipoEnvase);
+console.log('clientetipoenvaseLiveVariable3Success total: ' + total);
+console.log('clientetipoenvaseLiveVariable3Success operacion: ' + operacion);
+//this.idClienteTipoEnvaseEditor1.setDataValue(idClienteTipoEnvase);
+//this.cantidadEditor2.setDataValue(total);
+this.variableClienteTipoEnvase.setValue("idClienteTipoEnvase", idClienteTipoEnvase);
+this.variableClienteTipoEnvase.setValue("cantidad", total);
+//this.variableClienteTipoEnvase.setValue("tipoEnvase", idClienteTipoEnvase);
+//this.variableClienteTipoEnvase.setValue("cliente", cliente);
+debugger;
+//this.clientetipoenvaseLiveForm1.updateData();
+//            "clientetipoenvaseLiveVariable3Success idClienteTipoEnvase: 1"
+//            "clientetipoenvaseLiveVariable3Success total: 2"
+//            "clientetipoenvaseLiveVariable3Success operacion: +"
 }
 },
 _end: 0
@@ -116,7 +163,7 @@ wire3: ["wm.Wire", {"expression":undefined,"source":"clientetipoenvaseLiveForm1.
 }],
 variable1: ["wm.Variable", {"type":"StringData"}, {}],
 variable2: ["wm.Variable", {"type":"StringData"}, {}],
-clientetipoenvaseLiveVariable2: ["wm.LiveVariable", {"inFlightBehavior":"executeAll","type":"com.mi_envasedb.data.ClienteTipoEnvase"}, {"onSuccess":"insertMovimientotipoenvaseLiveForm2"}, {
+clientetipoenvaseLiveVariable2: ["wm.LiveVariable", {"inFlightBehavior":"executeAll","type":"com.mi_envasedb.data.ClienteTipoEnvase"}, {"onSuccess":"clientetipoenvaseLiveVariable2Success"}, {
 liveView: ["wm.LiveView", {"dataType":"com.mi_envasedb.data.ClienteTipoEnvase","related":["tipoEnvase","cliente"],"view":[
 {"caption":"IdClienteTipoEnvase","sortable":true,"dataIndex":"idClienteTipoEnvase","type":"java.lang.Integer","displayType":"Number","required":true,"readonly":true,"includeLists":true,"includeForms":true,"order":1000,"subType":null,"widthUnits":"px"},
 {"caption":"Cantidad","sortable":true,"dataIndex":"cantidad","type":"java.lang.String","displayType":"Text","required":true,"readonly":false,"includeLists":true,"includeForms":true,"order":1001,"subType":null,"widthUnits":"px"},
@@ -124,6 +171,16 @@ liveView: ["wm.LiveView", {"dataType":"com.mi_envasedb.data.ClienteTipoEnvase","
 {"caption":"Nombre","sortable":true,"dataIndex":"cliente.nombre","type":"java.lang.String","displayType":"Text","required":true,"widthUnits":"px","includeLists":true,"includeForms":true,"order":3001}
 ]}, {}]
 }],
+clientetipoenvaseLiveVariable3: ["wm.LiveVariable", {"inFlightBehavior":"executeAll","type":"com.mi_envasedb.data.ClienteTipoEnvase"}, {"onSuccess":"clientetipoenvaseLiveVariable3Success"}, {
+liveView: ["wm.LiveView", {"dataType":"com.mi_envasedb.data.ClienteTipoEnvase","related":["tipoEnvase","cliente"],"view":[
+{"caption":"IdClienteTipoEnvase","sortable":true,"dataIndex":"idClienteTipoEnvase","type":"java.lang.Integer","displayType":"Number","required":true,"readonly":true,"includeLists":true,"includeForms":true,"order":1000,"subType":null,"widthUnits":"px"},
+{"caption":"Cantidad","sortable":true,"dataIndex":"cantidad","type":"java.lang.String","displayType":"Text","required":true,"readonly":false,"includeLists":true,"includeForms":true,"order":1001,"subType":null,"widthUnits":"px"},
+{"caption":"Descripcion","sortable":true,"dataIndex":"tipoEnvase.descripcion","type":"java.lang.String","displayType":"Text","required":true,"widthUnits":"px","includeLists":true,"includeForms":true,"order":2001},
+{"caption":"Nombre","sortable":true,"dataIndex":"cliente.nombre","type":"java.lang.String","displayType":"Text","required":true,"widthUnits":"px","includeLists":true,"includeForms":true,"order":3001}
+]}, {}]
+}],
+variable3: ["wm.Variable", {"type":"StringData"}, {}],
+variable4: ["wm.Variable", {}, {}],
 layoutBox1: ["wm.Layout", {"horizontalAlign":"center","layoutKind":"left-to-right","preferredDevice":"desktop","verticalAlign":"top"}, {}, {
 panel3: ["wm.Panel", {"height":"100%","horizontalAlign":"left","minDesktopHeight":600,"minHeight":600,"minWidth":900,"verticalAlign":"top","width":"75%"}, {}, {
 panel1: ["wm.HeaderContentPanel", {"border":"0,0,1,0","borderColor":"#333333","height":"65px","horizontalAlign":"left","layoutKind":"left-to-right","padding":"0,10","verticalAlign":"middle","width":"100%"}, {}, {
@@ -277,7 +334,7 @@ movimientotipoenvaseNewButton: ["wm.Button", {"caption":"Nuevo","margin":"4"}, {
 }]
 }],
 Edit_Movimientotipoenvase: ["wm.Layer", {"autoScroll":true,"borderColor":"","caption":"Edit Movimientotipoenvase","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {}, {
-movimientotipoenvaseLiveForm1: ["wm.LiveForm", {"alwaysPopulateEditors":true,"borderColor":"#333333","fitToContentHeight":true,"height":"218px","horizontalAlign":"left","liveEditing":false,"margin":"4","readonly":true,"verticalAlign":"top"}, {"onSuccess":"mi_envaseDBLivePanel3.popupLiveFormSuccess"}, {
+movimientotipoenvaseLiveForm1: ["wm.LiveForm", {"alwaysPopulateEditors":true,"borderColor":"#333333","fitToContentHeight":true,"height":"374px","horizontalAlign":"left","liveEditing":false,"margin":"4","readonly":true,"verticalAlign":"top"}, {"onInsertData":"movimientotipoenvaseLiveForm1InsertData","onSuccess":"mi_envaseDBLivePanel3.popupLiveFormSuccess"}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"movimientotipoenvaseDojoGrid.selectedItem","targetProperty":"dataSet"}, {}]
 }],
@@ -285,7 +342,7 @@ idMovimientoTipoEnvaseEditor1: ["wm.Number", {"borderColor":"#FBFBFB","caption":
 cantidadEditor1: ["wm.Number", {"borderColor":"#FBFBFB","caption":"Cantidad","captionSize":"140px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"zero","formField":"cantidad","height":"26px","readonly":true,"required":true,"width":"100%"}, {}],
 totalEditor1: ["wm.Text", {"caption":"Total","captionSize":"140px","changeOnKey":true,"desktopHeight":"26px","disabled":true,"emptyValue":"emptyString","formField":"total","height":"26px","maxChars":45,"readonly":true,"required":true,"width":"100%"}, {}, {
 binding: ["wm.Binding", {}, {}, {
-wire: ["wm.Wire", {"expression":"function operacion(valor1, valor2, operador) {\n    var resultado = 0;\n\n    console.log(\"totalEditor1 valor1 (clienteTipoEnvaseLookup1.selectedItem.cantidad): \" + valor1); //Total\n\tconsole.log(\"totalEditor1 valor2 (cantidadEditor1.dataValue): \" + valor2); //Valor operacion\n\tconsole.log(\"totalEditor1 operador: \" + operador); //Suma o Resta\n    \n    var v1 = parseInt(valor1, 10);\n    var v2 = parseInt(valor2, 10);\n\n\tif (operador === '+') {\n\t\tresultado = v1 + v2; \n\t}\n\n\tif (operador === '-') {\n\t\tresultado = v1 - v2; \n\t}\n    \n    console.log(\"totalEditor1 resultado: \" + resultado);\n\n\treturn resultado;\n}\n\na = operacion(${clienteTipoEnvaseLookup1.selectedItem.cantidad}, \n            ${cantidadEditor1.dataValue}, \n            ${operacionMovimientoLookup1.displayValue});\n            \nconsole.log(\"totalEditor1 a: \" + a);\n\na;","targetProperty":"dataValue"}, {}]
+wire: ["wm.Wire", {"expression":"function operacion(valor1, valor2, operador) {\n    var resultado = 0;\n    \n    /**\n\n    console.log(\"totalEditor1 valor1 (clienteTipoEnvaseLookup1.selectedItem.cantidad): \" + valor1); //Total\n\tconsole.log(\"totalEditor1 valor2 (cantidadEditor1.dataValue): \" + valor2); //Valor operacion\n\tconsole.log(\"totalEditor1 operador: \" + operador); //Suma o Resta\n    \n    */\n    \n    var v1 = parseInt(valor1, 10);\n    var v2 = parseInt(valor2, 10);\n\n\tif (operador === '+') {\n\t\tresultado = v1 + v2; \n\t}\n\n\tif (operador === '-') {\n\t\tresultado = v1 - v2; \n\t}\n    \n    //console.log(\"totalEditor1 resultado: \" + resultado);\n\n\treturn resultado;\n}\n\na = operacion(${clienteTipoEnvaseLookup1.selectedItem.cantidad}, \n            ${cantidadEditor1.dataValue}, \n            ${operacionMovimientoLookup1.displayValue});\n\na;","targetProperty":"dataValue"}, {}]
 }]
 }],
 fechaEditor1: ["wm.DateTime", {"caption":"Fecha","captionSize":"140px","desktopHeight":"26px","emptyValue":"zero","formField":"fecha","height":"26px","readonly":true,"timePattern":"HH:mm:ss a","width":"100%"}, {}, {
@@ -294,7 +351,6 @@ wire: ["wm.Wire", {"expression":"new Date()","targetProperty":"defaultInsert"}, 
 wire1: ["wm.Wire", {"expression":"new Date()","targetProperty":"dataValue"}, {}]
 }]
 }],
-glosaEditor1: ["wm.Text", {"caption":"Glosa","captionSize":"140px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"glosa","height":"26px","readonly":true,"width":"100%"}, {}],
 operacionMovimientoLookup1: ["wm.Lookup", {"caption":"OperacionMovimiento","captionSize":"140px","dataType":"com.mi_envasedb.data.OperacionMovimiento","displayField":"operador","formField":"operacionMovimiento","readonly":true,"required":true,"width":"100%"}, {}],
 clienteTipoEnvaseLookup1: ["wm.Lookup", {"autoDataSet":false,"caption":"ClienteTipoEnvase","captionSize":"140px","dataType":"com.mi_envasedb.data.ClienteTipoEnvase","displayField":"cantidad","formField":"clienteTipoEnvase","readonly":true,"width":"100%"}, {}, {
 binding: ["wm.Binding", {}, {}, {
@@ -302,6 +358,7 @@ dataFieldWire: ["wm.Wire", {"source":"clienteTipoEnvaseLookup1.liveVariable","ta
 wire: ["wm.Wire", {"expression":undefined,"source":"clientetipoenvaseLiveVariable2","targetProperty":"dataSet"}, {}]
 }]
 }],
+glosaEditor1: ["wm.RichText", {"caption":"Glosa","captionAlign":"right","captionPosition":"left","captionSize":"140px","desktopHeight":"180px","formField":"glosa","height":"180px","maxHeight":320,"readonly":true}, {}],
 movimientotipoenvaseLiveForm1EditPanel: ["wm.EditPanel", {"desktopHeight":"32px","height":"32px","isCustomized":true,"liveForm":"movimientotipoenvaseLiveForm1","operationPanel":"operationPanel1","savePanel":"savePanel1","styles":{}}, {}, {
 savePanel1: ["wm.Panel", {"height":"100%","horizontalAlign":"right","layoutKind":"left-to-right","showing":false,"verticalAlign":"top","width":"100%"}, {}, {
 saveButton1: ["wm.Button", {"_classes":{"domNode":["SubmitButton"]},"caption":"Guardar","height":"100%","margin":"4"}, {"onclick":"movimientotipoenvaseLiveForm1EditPanel.saveData"}, {
