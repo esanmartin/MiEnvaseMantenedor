@@ -15,7 +15,7 @@ dojo.declare("MiEnvaseMantenedor", wm.Application, {
 	"sessionExpirationHandler": "navigateToLogin", 
 	"studioVersion": "6.7.0.RELEASE", 
 	"tabletMain": "", 
-	"theme": "wm.base.widget.themes.wm_default", 
+	"theme": "wm.base.widget.themes.wm_darkdawn", 
 	"toastPosition": "br", 
 	"touchToClickDelay": 500, 
 	"touchToRightClickDelay": 1500,

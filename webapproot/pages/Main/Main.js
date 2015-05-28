@@ -67,10 +67,17 @@ dojo.declare("Main", wm.Page, {
             
             console.log('insertMovimientotipoenvaseLiveForm2 Data inserted.');
             
+            
+            //TODO: hacer funcion que limpie data
             this.variable1.clearData();
             this.variable2.clearData();
             
             console.log('insertMovimientotipoenvaseLiveForm2 Variables cleared.');
+            
+            //TODO: hay que setear flag para evitar que se actualice cte por mte
+            
+            this.variable5.setValue("dataValue", "Inicial.");
+            
         }
         
     },
@@ -99,13 +106,17 @@ dojo.declare("Main", wm.Page, {
         var total = "" + this.totalEditor1.getDataValue();
         var operacion = "" + this.operacionMovimientoLookup1.getDisplayValue();
         
+        var clienteTipoEnvase = this.clienteTipoEnvaseLookup1.getDataValue();
+        
         console.log('movimientotipoenvaseLiveForm1InsertData idClienteTipoEnvase: ' + idClienteTipoEnvase);
         console.log('movimientotipoenvaseLiveForm1InsertData total: ' + total);
         console.log('movimientotipoenvaseLiveForm1InsertData operacion: ' + operacion);
+        console.log('movimientotipoenvaseLiveForm1InsertData clienteTipoEnvase: ' + clienteTipoEnvase);
         
         this.variable1.setValue("dataValue", idClienteTipoEnvase);
         this.variable2.setValue("dataValue", total);
         this.variable3.setValue("dataValue", operacion);
+        this.variable4.setValue("dataValue", clienteTipoEnvase);
         
         console.log("movimientotipoenvaseLiveForm1InsertData Hemos seteado las v3.");
         
@@ -124,30 +135,42 @@ dojo.declare("Main", wm.Page, {
         var idClienteTipoEnvase = this.variable1.getValue("dataValue");
         var total = this.variable2.getValue("dataValue");
         var operacion = this.variable3.getValue("dataValue");
+        var clienteTipoEnvase = this.variable4.getValue("dataValue");
+        var inicial = this.variable5.getValue("dataValue");
         
-        if (typeof operacion != "undefined") {
+        //TODO: Hacer evaluacion inicial en movimientotipoenvaseLiveForm1InsertData
+        console.log('clientetipoenvaseLiveVariable3Success inicial: ' + inicial);
+        
+        if (typeof operacion != "undefined" && typeof inicial == "undefined") {
             console.log('clientetipoenvaseLiveVariable3Success idClienteTipoEnvase: ' + idClienteTipoEnvase);
             console.log('clientetipoenvaseLiveVariable3Success total: ' + total);
             console.log('clientetipoenvaseLiveVariable3Success operacion: ' + operacion);
+            console.log('clientetipoenvaseLiveVariable3Success clienteTipoEnvase: ' + clienteTipoEnvase);
             
-            //this.idClienteTipoEnvaseEditor1.setDataValue(idClienteTipoEnvase);
-            //this.cantidadEditor2.setDataValue(total);
-            this.variableClienteTipoEnvase.setValue("idClienteTipoEnvase", idClienteTipoEnvase);
-            this.variableClienteTipoEnvase.setValue("cantidad", total);
-            //this.variableClienteTipoEnvase.setValue("tipoEnvase", idClienteTipoEnvase);
-            //this.variableClienteTipoEnvase.setValue("cliente", cliente);
+            this.idClienteTipoEnvaseEditor1.setDataValue(clienteTipoEnvase.idClienteTipoEnvase);
+            this.cantidadEditor2.setDataValue(total);
+            this.clienteLookup1.setDataValue(clienteTipoEnvase.cliente);
+            this.tipoEnvaseLookup1.setDataValue(clienteTipoEnvase.tipoEnvase);
             
-            debugger;
+            this.clientetipoenvaseLiveForm1.updateData();
             
-            //this.clientetipoenvaseLiveForm1.updateData();
+            //TODO: hacer funcion que limpie data
+            this.variable1.clearData();
+            this.variable2.clearData();
+            this.variable3.clearData();
+            this.variable4.clearData();
             
-//            "clientetipoenvaseLiveVariable3Success idClienteTipoEnvase: 1" 
-//            "clientetipoenvaseLiveVariable3Success total: 2" 
-//            "clientetipoenvaseLiveVariable3Success operacion: +"
+            console.log('clientetipoenvaseLiveVariable3Success limpiamos 4 var.');
+            
+        } else {
+            console.log('clientetipoenvaseLiveVariable3Success limpiamos inicial: ' + inicial);
+            
+            this.variable5.clearData();
         }
 		
 	},
     
+	
 	
 	_end: 0
 });
